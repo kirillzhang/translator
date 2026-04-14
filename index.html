@@ -11,7 +11,15 @@
     body{margin:0;font-family:Inter,system-ui;background:var(--bg);color:var(--text)}
 
     header{text-align:center;padding:60px 20px 40px;background:#fff}
-    header img{width:120px;height:120px;object-fit:cover;border-radius:50%;margin-bottom:20px}
+    header img{
+      width:120px;height:120px;object-fit:cover;border-radius:50%;margin-bottom:20px;
+      transition:transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow:0 6px 20px rgba(0,0,0,0.1);
+    }
+    header img:hover{
+      transform:scale(1.05);
+      box-shadow:0 10px 30px rgba(0,0,0,0.15);
+    }
     header h1{margin:0;font-size:30px}
     header p{margin-top:8px;color:#666}
 
@@ -23,9 +31,25 @@
     h2{font-size:18px;margin-bottom:15px;font-weight:600}
 
     .about-flex{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
-    .about-flex img{width:180px;border-radius:12px}
+    .about-flex img{
+      width:180px;border-radius:12px;
+      transition:transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow:0 6px 20px rgba(0,0,0,0.1);
+    }
+    .about-flex img:hover{
+      transform:scale(1.05);
+      box-shadow:0 10px 30px rgba(0,0,0,0.15);
+    }
 
-    .btn{display:inline-block;background:var(--primary);color:#fff;padding:10px 16px;border-radius:6px;text-decoration:none;margin-top:10px;font-size:14px}
+    .btn{
+      display:inline-block;background:var(--primary);color:#fff;padding:10px 16px;border-radius:6px;text-decoration:none;margin-top:10px;font-size:14px;
+      transition:transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow:0 4px 12px rgba(0,0,0,0.1);
+    }
+    .btn:hover{
+      transform:scale(1.05);
+      box-shadow:0 8px 20px rgba(0,0,0,0.15);
+    }
 
     footer{text-align:center;padding:40px;color:#888;font-size:13px}
   </style>
@@ -34,21 +58,21 @@
 
 <header>
   <img src="profile.jpg" alt="证件照">
-  <h1 id="name">张宏江 Кирилл Чжан</h1>
+  <h1 id="name">你的名字</h1>
   <p id="title">中俄翻译｜学术与国际交流</p>
 </header>
 
 <nav>
-  <a href="#about" id="nav_about">个人介绍</a>
+  <a href="#about" id="nav_about">关于</a>
   <a href="#services" id="nav_services">服务</a>
-  <a href="#portfolio" id="nav_portfolio">翻译案例</a>
-  <a href="#contact" id="nav_contact">联系我</a>
+  <a href="#portfolio" id="nav_portfolio">案例</a>
+  <a href="#contact" id="nav_contact">联系</a>
   <span class="lang" onclick="setLang('zh')">中文</span>
-  <span class="lang" onclick="setLang('ru')">РУ</span>
+  <span class="lang" onclick="setLang('ru')">RU</span>
 </nav>
 
 <section id="about">
-  <h2 id="about_title">个人介绍</h2>
+  <h2 id="about_title">关于我</h2>
   <div class="about-flex">
     <img src="work.jpg" alt="工作照片">
     <p id="about_text">专业中俄翻译，专注高校合作、政府交流与学术研究领域，提供高标准语言服务。可承接国际合作项目及高端翻译任务。</p>
@@ -77,7 +101,7 @@
 </section>
 
 <footer>
-  <p id="footer">© 2026 Кирилл Чжан</p>
+  <p id="footer">© 2026 张宏江</p>
 </footer>
 
 <script>
