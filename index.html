@@ -6,167 +6,163 @@
   <title>中俄翻译 | 个人主页</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
-    :root{--text:#2f2f2f;--primary:#1e3a8a;--bg:#ffffff}
+    :root{--text:#1f2937;--primary:#1e3a8a;--bg:#ffffff}
     *{box-sizing:border-box}
     body{margin:0;font-family:Inter,system-ui;background:var(--bg);color:var(--text)}
 
-    header{text-align:center;padding:60px 20px 40px;background:#fff}
-    header img{
-      width:120px;height:120px;object-fit:cover;border-radius:50%;margin-bottom:20px;
-      transition:transform 0.3s ease, box-shadow 0.3s ease;
-      box-shadow:0 6px 20px rgba(0,0,0,0.1);
+    /* NAV */
+    .nav-wrap{
+      position:sticky;top:0;z-index:10;
+      backdrop-filter:blur(10px);
+      background:rgba(255,255,255,0.7);
+      border-bottom:1px solid rgba(0,0,0,0.05);
     }
-    header img:hover{
-      transform:scale(1.05);
-      box-shadow:0 10px 30px rgba(0,0,0,0.15);
+    nav{
+      max-width:1000px;margin:0 auto;
+      display:flex;align-items:center;justify-content:space-between;
+      padding:14px 20px;
     }
-    header h1{margin:0;font-size:30px}
-    header p{margin-top:8px;color:#666}
+    .brand{font-weight:600;font-size:16px}
+    .menu{display:flex;align-items:center;gap:18px}
+    .menu a{font-size:14px;color:var(--text);text-decoration:none}
+    .lang{cursor:pointer;color:var(--primary);font-size:13px}
 
-    nav{position:sticky;top:0;backdrop-filter:blur(10px);background:rgba(255,255,255,0.7);text-align:center;padding:10px 0;border-bottom:1px solid rgba(0,0,0,0.05)}
-    nav a{margin:0 12px;text-decoration:none;color:var(--text);font-size:14px}
-    .lang{margin-left:10px;cursor:pointer;color:var(--primary);font-size:14px}
+    /* SECTIONS */
+    section{max-width:1000px;margin:0 auto;padding:80px 20px}
 
-    section{max-width:800px;margin:60px auto;padding:0 20px}
-    h2{font-size:18px;margin-bottom:15px;font-weight:600}
-
-    .about-flex{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
-    .about-flex img{
-      width:180px;border-radius:12px;
-      transition:transform 0.3s ease, box-shadow 0.3s ease;
-      box-shadow:0 6px 20px rgba(0,0,0,0.1);
+    /* HERO */
+    .hero{display:flex;align-items:center;gap:50px;flex-wrap:wrap}
+    .hero img{
+      width:180px;height:180px;border-radius:50%;object-fit:cover;
+      background:#fff;padding:6px;
+      box-shadow:0 12px 30px rgba(0,0,0,0.15);
+      transition:.3s;
     }
-    .about-flex img:hover{
-      transform:scale(1.05);
-      box-shadow:0 10px 30px rgba(0,0,0,0.15);
-    }
+    .hero img:hover{transform:scale(1.05)}
+    .hero-text{max-width:520px}
+    .hero-text h1{margin:0;font-size:28px}
+    .hero-text p{margin-top:10px;color:#555;line-height:1.6}
 
     .btn{
-      display:inline-block;background:var(--primary);color:#fff;padding:10px 16px;border-radius:6px;text-decoration:none;margin-top:10px;font-size:14px;
-      transition:transform 0.2s ease, box-shadow 0.2s ease;
-      box-shadow:0 4px 12px rgba(0,0,0,0.1);
+      display:inline-block;margin-top:15px;
+      background:var(--primary);color:#fff;
+      padding:10px 16px;border-radius:6px;text-decoration:none;font-size:14px;
+      box-shadow:0 6px 18px rgba(0,0,0,0.15);
+      transition:.25s;
     }
-    .btn:hover{
-      transform:scale(1.05);
-      box-shadow:0 8px 20px rgba(0,0,0,0.15);
+    .btn:hover{transform:scale(1.05);box-shadow:0 10px 25px rgba(0,0,0,0.2)}
+
+    /* PORTFOLIO */
+    .carousel{overflow:hidden;margin-top:30px}
+    .track{display:flex;gap:15px;width:max-content;animation:scroll 25s linear infinite}
+    .track img{
+      width:220px;height:150px;object-fit:cover;border-radius:12px;
+      box-shadow:0 6px 20px rgba(0,0,0,0.1);
+      transition:.3s;
     }
+    .track img:hover{transform:scale(1.05)}
+    @keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+    .right-btn{text-align:right;margin-top:15px}
+
+    /* SERVICES */
+    .grid{display:grid;gap:10px}
 
     footer{text-align:center;padding:40px;color:#888;font-size:13px}
   </style>
 </head>
 <body>
 
-<header>
-  <img src="profile.jpg" alt="证件照">
-  <h1 id="name">张宏江 Кирилл Чжан</h1>
-  <p id="title">中俄翻译｜学术与国际交流</p>
-</header>
+<div class="nav-wrap">
+  <nav>
+    <div class="brand" id="name">张宏江 Кирилл Чжан</div>
+    <div class="menu">
+      <a href="#hero" id="nav_home">首页</a>
+      <a href="#portfolio" id="nav_portfolio">案例</a>
+      <a href="#services" id="nav_services">服务</a>
+      <span class="lang" onclick="setLang('zh')">中文</span>
+      <span class="lang" onclick="setLang('ru')">RU</span>
+    </div>
+  </nav>
+</div>
 
-<nav>
-  <a href="#about" id="nav_about">我的介绍</a>
-  <a href="#services" id="nav_services">服务</a>
-  <a href="#portfolio" id="nav_portfolio">案例</a>
-  <a href="#contact" id="nav_contact">联系我</a>
-  <span class="lang" onclick="setLang('zh')">中文</span>
-  <span class="lang" onclick="setLang('ru')">RU</span>
-</nav>
-
-<section id="about">
-  <h2 id="about_title">关于我</h2>
-  <div class="about-flex">
-    <img src="work.jpg" alt="工作照片">
-    <p id="about_text">专业中俄翻译，专注高校合作、政府交流与学术研究领域，提供高标准语言服务。可承接国际合作项目及高端翻译任务。</p>
-  </div>
-</section>
-
-<section id="services">
-  <h2 id="services_title">服务内容</h2>
-  <ul id="services_list">
-    <li>笔译：中 ⇄ 俄</li>
-    <li>口译：会议与商务</li>
-    <li>学术与政策文件翻译</li>
-  </ul>
-</section>
-
-<section id="portfolio">
-  <h2 id="portfolio_title">翻译案例</h2>
-  <p id="case1">高校合作协议翻译</p>
-  <p id="case2">材料科学论文翻译</p>
-
-  <div class="carousel">
-    <div class="carousel-track">
-      <img src="img1.jpg">
-      <img src="img2.jpg">
-      <img src="img3.jpg">
-      <img src="img4.jpg">
-      <img src="img5.jpg">
-      <img src="img6.jpg">
-      <img src="img7.jpg">
-      <!-- duplicate for seamless loop -->
-      <img src="img1.jpg">
-      <img src="img2.jpg">
-      <img src="img3.jpg">
-      <img src="img4.jpg">
-      <img src="img5.jpg">
-      <img src="img6.jpg">
-      <img src="img7.jpg">
+<!-- PAGE 1 -->
+<section id="hero">
+  <div class="hero">
+    <img src="profile.jpg" alt="证件照">
+    <div class="hero-text">
+      <h1 id="title">中俄翻译｜学术与国际交流</h1>
+      <p id="about_text">专业中俄翻译，专注高校合作、政府交流与学术研究领域，提供高标准语言服务。可承接国际合作项目及高端翻译任务。</p>
+      <a href="cv.pdf" class="btn" id="cv">下载我的简历</a>
     </div>
   </div>
-
-  <a href="sample.pdf" class="btn" id="download">下载作品集</a>
 </section>
 
-<section id="contact">
-  <h2 id="contact_title">联系方式</h2>
-  <a class="btn" href="mailto:your@email.com">发送邮件</a>
+<!-- PAGE 2 -->
+<section id="portfolio">
+  <h2 id="portfolio_title">翻译案例</h2>
+  <div class="carousel">
+    <div class="track">
+      <img src="img1.jpg"><img src="img2.jpg"><img src="img3.jpg"><img src="img4.jpg"><img src="img5.jpg"><img src="img6.jpg"><img src="img7.jpg">
+      <img src="img1.jpg"><img src="img2.jpg"><img src="img3.jpg"><img src="img4.jpg"><img src="img5.jpg"><img src="img6.jpg"><img src="img7.jpg">
+    </div>
+  </div>
+  <div class="right-btn">
+    <a href="sample.pdf" class="btn" id="download">下载翻译作品</a>
+  </div>
+</section>
+
+<!-- PAGE 3 -->
+<section id="services">
+  <h2 id="services_title">服务与联系</h2>
+  <div class="grid" id="services_list">
+    <div>笔译：中 ⇄ 俄</div>
+    <div>口译：会议与商务</div>
+    <div>学术与政策文件翻译</div>
+    <div>Email：your@email.com</div>
+  </div>
+  <a class="btn" href="mailto:your@email.com" id="contact">发送邮件</a>
 </section>
 
 <footer>
-  <p id="footer">© 2026 张宏江</p>
+  <p>© 2026 张宏江 Кирилл Чжан</p>
 </footer>
 
 <script>
 const content={
  zh:{
+  nav_home:"首页",nav_portfolio:"案例",nav_services:"服务",
   title:"中俄翻译｜学术与国际交流",
-  nav_about:"关于",nav_services:"服务",nav_portfolio:"案例",nav_contact:"联系",
-  about_title:"关于我",
   about_text:"专业中俄翻译，专注高校合作、政府交流与学术研究领域，提供高标准语言服务。可承接国际合作项目及高端翻译任务。",
-  services_title:"服务内容",
   portfolio_title:"翻译案例",
-  case1:"高校合作协议翻译",
-  case2:"材料科学论文翻译",
-  contact_title:"联系方式",
-  download:"下载作品集"
+  services_title:"服务与联系",
+  cv:"下载我的简历",
+  download:"下载翻译作品",
+  contact:"发送邮件"
  },
  ru:{
-  title:"Переводчик китайский-русский | Академические и международные проекты",
-  nav_about:"Обо мне",nav_services:"Услуги",nav_portfolio:"Портфолио",nav_contact:"Контакты",
-  about_title:"Обо мне",
-  about_text:"Профессиональный переводчик китайского и русского языков. Специализация: университетское сотрудничество, государственные и научные проекты. Открыт для международного сотрудничества.",
-  services_title:"Услуги",
+  nav_home:"Главная",nav_portfolio:"Портфолио",nav_services:"Услуги",
+  title:"Переводчик китайский-русский",
+  about_text:"Профессиональный переводчик китайского и русского языков. Специализация: международные проекты.",
   portfolio_title:"Портфолио",
-  case1:"Перевод соглашений между университетами",
-  case2:"Научные статьи (материаловедение)",
-  contact_title:"Контакты",
-  download:"Скачать PDF"
+  services_title:"Услуги и контакты",
+  cv:"Скачать CV",
+  download:"Скачать переводы",
+  contact:"Написать письмо"
  }
 }
 function setLang(lang){
  let d=content[lang];
- document.getElementById('title').innerText=d.title;
- document.getElementById('nav_about').innerText=d.nav_about;
- document.getElementById('nav_services').innerText=d.nav_services;
+ document.getElementById('nav_home').innerText=d.nav_home;
  document.getElementById('nav_portfolio').innerText=d.nav_portfolio;
- document.getElementById('nav_contact').innerText=d.nav_contact;
- document.getElementById('about_title').innerText=d.about_title;
+ document.getElementById('nav_services').innerText=d.nav_services;
+ document.getElementById('title').innerText=d.title;
  document.getElementById('about_text').innerText=d.about_text;
- document.getElementById('services_title').innerText=d.services_title;
  document.getElementById('portfolio_title').innerText=d.portfolio_title;
- document.getElementById('case1').innerText=d.case1;
- document.getElementById('case2').innerText=d.case2;
- document.getElementById('contact_title').innerText=d.contact_title;
+ document.getElementById('services_title').innerText=d.services_title;
+ document.getElementById('cv').innerText=d.cv;
  document.getElementById('download').innerText=d.download;
+ document.getElementById('contact').innerText=d.contact;
 }
 </script>
 
