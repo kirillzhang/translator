@@ -3,82 +3,81 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Professional Translator | CN–RU</title>
+  <title>中俄翻译 | 个人主页</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
-    :root{--primary:#0f172a;--accent:#2563eb;--bg:#f8fafc}
+    :root{--text:#2f2f2f;--primary:#1e3a8a;--bg:#ffffff}
     *{box-sizing:border-box}
-    body{margin:0;font-family:Inter,system-ui;background:var(--bg);color:#111}
-    header{background:linear-gradient(120deg,#0f172a,#1e293b);color:#fff;padding:80px 20px;text-align:center}
-    header h1{margin:0;font-size:42px;font-weight:700}
-    header p{opacity:.85;margin-top:12px}
-    nav{background:#fff;padding:12px;text-align:center;position:sticky;top:0;border-bottom:1px solid #eee}
-    nav a{margin:0 15px;color:#333;text-decoration:none;font-weight:500}
-    .lang{margin-left:20px;cursor:pointer;color:var(--accent)}
-    section{max-width:900px;margin:50px auto;padding:0 20px}
-    .card{background:#fff;border-radius:16px;padding:30px;margin-bottom:25px;box-shadow:0 10px 30px rgba(0,0,0,.05)}
-    h2{margin-top:0;font-size:22px;border-left:4px solid var(--accent);padding-left:10px}
-    .btn{display:inline-block;background:var(--accent);color:#fff;padding:10px 18px;border-radius:8px;text-decoration:none;margin-top:10px}
-    .muted{color:#666}
-    footer{text-align:center;padding:30px;color:#777}
+    body{margin:0;font-family:Inter,system-ui;background:var(--bg);color:var(--text)}
+
+    header{text-align:center;padding:60px 20px 40px;background:#fff}
+    header img{width:120px;height:120px;object-fit:cover;border-radius:50%;margin-bottom:20px}
+    header h1{margin:0;font-size:30px}
+    header p{margin-top:8px;color:#666}
+
+    nav{position:sticky;top:0;backdrop-filter:blur(10px);background:rgba(255,255,255,0.7);text-align:center;padding:10px 0;border-bottom:1px solid rgba(0,0,0,0.05)}
+    nav a{margin:0 12px;text-decoration:none;color:var(--text);font-size:14px}
+    .lang{margin-left:10px;cursor:pointer;color:var(--primary);font-size:14px}
+
+    section{max-width:800px;margin:60px auto;padding:0 20px}
+    h2{font-size:18px;margin-bottom:15px;font-weight:600}
+
+    .about-flex{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+    .about-flex img{width:180px;border-radius:12px}
+
+    .btn{display:inline-block;background:var(--primary);color:#fff;padding:10px 16px;border-radius:6px;text-decoration:none;margin-top:10px;font-size:14px}
+
+    footer{text-align:center;padding:40px;color:#888;font-size:13px}
   </style>
 </head>
 <body>
 
 <header>
+  <img src="profile.jpg" alt="证件照">
   <h1 id="name">张宏江 Кирилл Чжан</h1>
-  <p id="title">CN–RU Translator | Academic & International Affairs</p>
+  <p id="title">中俄翻译｜学术与国际交流</p>
 </header>
 
 <nav>
-  <a href="#about" id="nav_about">About</a>
-  <a href="#services" id="nav_services">Services</a>
-  <a href="#portfolio" id="nav_portfolio">Portfolio</a>
-  <a href="#contact" id="nav_contact">Contact</a>
+  <a href="#about" id="nav_about">个人介绍</a>
+  <a href="#services" id="nav_services">服务</a>
+  <a href="#portfolio" id="nav_portfolio">翻译案例</a>
+  <a href="#contact" id="nav_contact">联系我</a>
   <span class="lang" onclick="setLang('zh')">中文</span>
-  <span class="lang" onclick="setLang('ru')">RU</span>
+  <span class="lang" onclick="setLang('ru')">РУ</span>
 </nav>
 
 <section id="about">
-  <div class="card">
-    <h2 id="about_title">About</h2>
-    <p id="about_text" class="muted">
-      Professional Chinese–Russian translator specializing in academic, governmental, and international cooperation projects. Experienced in high-level documentation, speeches, and institutional partnerships.
-    </p>
+  <h2 id="about_title">个人介绍</h2>
+  <div class="about-flex">
+    <img src="work.jpg" alt="工作照片">
+    <p id="about_text">专业中俄翻译，专注高校合作、政府交流与学术研究领域，提供高标准语言服务。可承接国际合作项目及高端翻译任务。</p>
   </div>
 </section>
 
 <section id="services">
-  <div class="card">
-    <h2 id="services_title">Services</h2>
-    <ul id="services_list">
-      <li>Written Translation (CN ⇄ RU)</li>
-      <li>Conference & Business Interpreting</li>
-      <li>Academic & Policy Documents</li>
-      <li>Editing & Localization</li>
-    </ul>
-  </div>
+  <h2 id="services_title">服务内容</h2>
+  <ul id="services_list">
+    <li>笔译：中 ⇄ 俄</li>
+    <li>口译：会议与商务</li>
+    <li>学术与政策文件翻译</li>
+  </ul>
 </section>
 
 <section id="portfolio">
-  <div class="card">
-    <h2 id="portfolio_title">Portfolio</h2>
-    <p id="case1">University cooperation agreements</p>
-    <p id="case2">Scientific publications (materials science)</p>
-    <a href="sample.pdf" class="btn" id="download">Download Portfolio (PDF)</a>
-  </div>
+  <h2 id="portfolio_title">翻译案例</h2>
+  <p id="case1">高校合作协议翻译</p>
+  <p id="case2">材料科学论文翻译</p>
+  <a href="sample.pdf" class="btn" id="download">下载作品集</a>
 </section>
 
 <section id="contact">
-  <div class="card">
-    <h2 id="contact_title">Contact</h2>
-    <p>Email:</p>
-    <a id="email_link" class="btn" href="mailto:your@email.com">Send Email</a>
-  </div>
+  <h2 id="contact_title">联系方式</h2>
+  <a class="btn" href="mailto:your@email.com">发送邮件</a>
 </section>
 
 <footer>
-  <p id="footer">© 2026 Your Name</p>
+  <p id="footer">© 2026 Кирилл Чжан</p>
 </footer>
 
 <script>
@@ -87,7 +86,7 @@ const content={
   title:"中俄翻译｜学术与国际交流",
   nav_about:"关于",nav_services:"服务",nav_portfolio:"案例",nav_contact:"联系",
   about_title:"关于我",
-  about_text:"专业中俄翻译，专注高校合作、政府交流与学术研究领域，提供高标准语言服务。",
+  about_text:"专业中俄翻译，专注高校合作、政府交流与学术研究领域，提供高标准语言服务。可承接国际合作项目及高端翻译任务。",
   services_title:"服务内容",
   portfolio_title:"翻译案例",
   case1:"高校合作协议翻译",
@@ -96,13 +95,13 @@ const content={
   download:"下载作品集"
  },
  ru:{
-  title:"Переводчик CN–RU | Академические проекты",
+  title:"Переводчик китайский-русский | Академические и международные проекты",
   nav_about:"Обо мне",nav_services:"Услуги",nav_portfolio:"Портфолио",nav_contact:"Контакты",
   about_title:"Обо мне",
-  about_text:"Профессиональный переводчик китайского и русского языков, специализация: университетское сотрудничество и международные проекты.",
+  about_text:"Профессиональный переводчик китайского и русского языков. Специализация: университетское сотрудничество, государственные и научные проекты. Открыт для международного сотрудничества.",
   services_title:"Услуги",
   portfolio_title:"Портфолио",
-  case1:"Перевод университетских соглашений",
+  case1:"Перевод соглашений между университетами",
   case2:"Научные статьи (материаловедение)",
   contact_title:"Контакты",
   download:"Скачать PDF"
