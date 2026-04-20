@@ -1,0 +1,69 @@
+body {
+  margin: 0;
+  font-family: -apple-system;
+  background: #fff;
+  color: #333;
+}
+
+.nav {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 40px;
+  backdrop-filter: blur(10px);
+  background: rgba(255,255,255,0.7);
+}
+
+.hero {
+  display: flex;
+  gap: 50px;
+  align-items: center;
+  padding: 80px 40px;
+}
+
+.hero img {
+  width: 180px;
+  border-radius: 50%;
+  padding: 6px;
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  transition: 0.3s;
+}
+
+.hero img:hover {
+  transform: scale(1.05);
+}
+
+.btn {
+  background: #1e3a8a;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+.carousel {
+  overflow: hidden;
+}
+
+.track {
+  display: flex;
+  gap: 15px;
+  animation: scroll 25s linear infinite;
+}
+
+.track img {
+  width: 220px;
+  border-radius: 10px;
+}
+
+@keyframes scroll {
+  0% {transform: translateX(0)}
+  100% {transform: translateX(-50%)}
+}
