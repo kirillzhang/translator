@@ -3,58 +3,62 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>中俄翻译 | 张宏江</title>
+  <title>中俄翻译 | 个人主页</title>
   <style>
     body { margin:0; font-family:"Helvetica Neue", Arial; background:#f5f5f5; color:#333; }
 
-    header {
-      position:fixed; top:0; width:100%;
-      background:rgba(255,255,255,0.65); /* 提高透明度 */
-      backdrop-filter:blur(12px);
-      display:flex; justify-content:space-between; align-items:center;
-      padding:15px 40px; z-index:1000;
-    }
+    header { position:fixed; top:0; width:100%; background:rgba(255,255,255,0.65); backdrop-filter:blur(12px); display:flex; justify-content:space-between; align-items:center; padding:12px 20px; z-index:1000; }
+    .logo{font-size:18px;font-weight:bold;}
+    nav{display:flex;align-items:center;}
+    nav a{margin-left:15px;text-decoration:none;color:#333;font-size:13px;}
+    .lang-switch{cursor:pointer;margin-left:15px;font-size:12px;}
 
-    .logo{font-size:20px;font-weight:bold;}
-    nav a{margin-left:20px;text-decoration:none;color:#333;font-size:14px;}
+    section{padding:80px 20px;max-width:1000px;margin:auto;}
+    .tight{padding-top:30px;}
 
-    section{padding:90px 40px;max-width:1000px;margin:auto;}
-    .tight{padding-top:40px;} /* 缩短间距 */
+    .hero{display:flex;align-items:center;gap:30px;}
+    .hero img{width:180px;border-radius:50%;border:6px solid #fff;box-shadow:0 4px 20px rgba(0,0,0,0.1);}
 
-    .hero{display:flex;align-items:center;gap:40px;}
-    .hero img{width:200px;border-radius:50%;border:6px solid #fff;box-shadow:0 4px 20px rgba(0,0,0,0.1);}
-
-    .btn{display:inline-block;margin-top:15px;padding:10px 18px;background:#0b3d91;color:#fff;border-radius:6px;text-decoration:none;font-size:14px;transition:0.3s;}
+    .btn{display:inline-block;margin-top:15px;padding:10px 16px;background:#0b3d91;color:#fff;border-radius:6px;text-decoration:none;font-size:13px;}
     .btn:hover{background:#082c6c;}
 
-    .card{position:relative;background:#fff;padding:20px;border-radius:12px;box-shadow:0 4px 15px rgba(0,0,0,0.05);margin-bottom:20px;transition:0.3s;overflow:hidden;}
-    .card:hover{transform:translateY(-8px);box-shadow:0 12px 30px rgba(0,0,0,0.12);}    
-
-    .card::before{
-      content:"";position:absolute;top:0;left:0;width:100%;height:100%;
-      background:radial-gradient(circle at var(--x,50%) var(--y,50%), rgba(255,255,255,0.4), transparent 40%);
-      opacity:0;transition:0.3s;
-    }
+    .card{position:relative;background:#fff;padding:18px;border-radius:12px;box-shadow:0 4px 15px rgba(0,0,0,0.05);margin-bottom:15px;transition:0.3s;overflow:hidden;}
+    .card:hover{transform:translateY(-6px);box-shadow:0 10px 25px rgba(0,0,0,0.12);}    
+    .card::before{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background:radial-gradient(circle at var(--x,50%) var(--y,50%), rgba(255,255,255,0.4), transparent 40%);opacity:0;transition:0.3s;}
     .card:hover::before{opacity:1;}
 
-    .fade-in{opacity:0;transform:translateY(40px);transition:0.8s;}
+    .fade-in{opacity:0;transform:translateY(30px);transition:0.6s;}
     .fade-in.visible{opacity:1;transform:translateY(0);}    
     .delay-1{transition-delay:0.1s;} .delay-2{transition-delay:0.2s;}
 
-    /* 轮播 */
-    .carousel{position:relative;overflow:hidden;border-radius:12px;margin-top:20px;}
-    .carousel-track{display:flex;transition:0.5s;}
-    .carousel img{width:30%;flex-shrink:0;}
+    /* ===== 作品集级轮播 ===== */
+    .carousel{position:relative;overflow:hidden;margin-top:20px;}
+    .carousel-viewport{overflow:hidden;border-radius:16px;}
+    .carousel-track{display:flex;gap:16px;will-change:transform;}
+    .slide{flex:0 0 80%; border-radius:14px; overflow:hidden; transform:scale(0.92); transition:transform .4s ease, box-shadow .4s ease; box-shadow:0 6px 20px rgba(0,0,0,.08);} 
+    .slide.active{transform:scale(1); box-shadow:0 12px 35px rgba(0,0,0,.16);} 
+    .slide img{width:100%; height:260px; object-fit:cover; display:block;}
+
+    .dots{display:flex; justify-content:center; gap:8px; margin-top:10px;}
+    .dot{width:8px;height:8px;border-radius:50%;background:#ccc;cursor:pointer;transition:.3s;}
+    .dot.active{background:#0b3d91; transform:scale(1.2);}    
 
     footer{text-align:center;padding:20px;font-size:12px;color:#888;}
 
-    .lang-switch{cursor:pointer;margin-left:20px;font-size:12px;}
+    /* ===== 移动端 ===== */
+    @media (max-width:768px){
+      .hero{flex-direction:column;text-align:center;}
+      .hero img{width:140px;}
+      .slide{flex-basis:88%;}
+      .slide img{height:200px;}
+    }
+    @media (max-width:480px){ nav a{display:none;} }
   </style>
 </head>
 <body>
 
 <header>
-  <div class="logo">张宏江 Кирилл Чжан</div>
+  <div class="logo">你的名字</div>
   <nav>
     <a href="#about" data-zh="关于我" data-ru="Обо мне">关于我</a>
     <a href="#cases" data-zh="翻译案例" data-ru="Проекты">翻译案例</a>
@@ -68,7 +72,7 @@
   <img src="your-photo.jpg">
   <div class="fade-in delay-1">
     <h1 data-zh="中俄翻译 | 会议口译 / 笔译" data-ru="Китайско-русский переводчик">中俄翻译 | 会议口译 / 笔译</h1>
-    <p data-zh="专业从事外交、教育、科技翻译" data-ru="Профессиональный переводчик в сфере дипломатии">本人具备扎实的俄语语言功底，持有翻译专业资格（CATTI）二级证书，俄语专业八级和俄罗斯国家语言等级证书（ТРКИ2），可熟练开展俄汉双向笔译与口译工作。擅长领域包括教育合作、国际交流、商务沟通及正式文本翻译，能够为客户提供专业、准确且具备实际沟通价值的语言服务。</p>
+    <p data-zh="专业从事外交、教育、科技翻译" data-ru="Профессиональный переводчик">专业从事外交、教育、科技翻译</p>
     <a href="resume.pdf" class="btn" data-zh="下载简历" data-ru="Скачать резюме">下载简历</a>
   </div>
 </section>
@@ -76,13 +80,22 @@
 <section id="cases" class="fade-in">
   <h2 data-zh="翻译案例" data-ru="Проекты">翻译案例</h2>
   <div class="card fade-in delay-1">会议口译案例</div>
-  <div class="card fade-in delay-2">教育合作文件翻译</div>
+  <div class="card fade-in delay-2">外交文件翻译</div>
 
-  <!-- 轮播 -->
-  <div class="carousel fade-in delay-2">
-    <div class="carousel-track" id="track">
-      <img src="1.jpg"><img src="2.jpg"><img src="3.jpg"><img src="4.jpg"><img src="5.jpg"><img src="6.jpg"><img src="7.jpg">
+  <!-- 作品集级轮播 -->
+  <div class="carousel fade-in delay-2" id="carousel">
+    <div class="carousel-viewport">
+      <div class="carousel-track" id="track">
+        <div class="slide"><img src="1.jpg"></div>
+        <div class="slide"><img src="2.jpg"></div>
+        <div class="slide"><img src="3.jpg"></div>
+        <div class="slide"><img src="4.jpg"></div>
+        <div class="slide"><img src="5.jpg"></div>
+        <div class="slide"><img src="6.jpg"></div>
+        <div class="slide"><img src="7.jpg"></div>
+      </div>
     </div>
+    <div class="dots" id="dots"></div>
   </div>
 </section>
 
@@ -93,13 +106,13 @@
 
 <section id="contact" class="fade-in tight">
   <h2 data-zh="联系方式" data-ru="Контакты">联系方式</h2>
-  <div 邮箱：kirillzhang@126.com / 微信</div>
-  <div class="card">邮箱：kirillzhang@126.com / 手机号（微信）：15221073637</div>
+  <div class="card">邮箱 / 微信</div>
 </section>
 
-<footer>© 2026  Все еще впереди  张宏江 Кирилл Чжан</footer>
+<footer>© 2026</footer>
 
 <script>
+// 渐显
 const observer=new IntersectionObserver(e=>{e.forEach(i=>{if(i.isIntersecting)i.target.classList.add('visible')})});
 document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
 
@@ -112,13 +125,49 @@ document.querySelectorAll('.card').forEach(card=>{
   });
 });
 
-// 轮播
-let index=0;
-setInterval(()=>{
-  const track=document.getElementById('track');
-  index=(index+1)%7;
-  track.style.transform=`translateX(-${index*100}%)`;
-},3000);
+// ===== 作品集轮播逻辑 =====
+const track=document.getElementById('track');
+const slides=[...document.querySelectorAll('.slide')];
+const dotsWrap=document.getElementById('dots');
+let idx=0; let timer; let isHover=false;
+
+// dots
+slides.forEach((_,i)=>{
+  const d=document.createElement('div'); d.className='dot';
+  d.onclick=()=>go(i);
+  dotsWrap.appendChild(d);
+});
+const dots=[...document.querySelectorAll('.dot')];
+
+function update(){
+  const w=slides[0].getBoundingClientRect().width + 16; // gap=16
+  track.style.transform=`translateX(-${idx*w - (window.innerWidth<768? w*0.1 : w*0.1)}px)`;
+  slides.forEach((s,i)=>s.classList.toggle('active', i===idx));
+  dots.forEach((d,i)=>d.classList.toggle('active', i===idx));
+}
+
+function go(i){ idx=(i+slides.length)%slides.length; update(); }
+
+function autoplay(){ if(isHover) return; go(idx+1); }
+
+// 自动播放 + hover暂停
+function start(){ timer=setInterval(autoplay,3000); }
+function stop(){ clearInterval(timer); }
+const carousel=document.getElementById('carousel');
+carousel.addEventListener('mouseenter',()=>{isHover=true;});
+carousel.addEventListener('mouseleave',()=>{isHover=false;});
+
+// 触摸滑动
+let startX=0, dx=0;
+track.addEventListener('touchstart',e=>{startX=e.touches[0].clientX; stop();});
+track.addEventListener('touchmove',e=>{dx=e.touches[0].clientX-startX;});
+track.addEventListener('touchend',()=>{
+  if(Math.abs(dx)>50){ go(idx + (dx<0?1:-1)); }
+  dx=0; start();
+});
+
+window.addEventListener('resize', update);
+update(); start();
 
 // 双语
 let isRU=false;
