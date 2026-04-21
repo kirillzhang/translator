@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>中俄翻译 | 个人主页</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      background: #f5f5f5;
+      color: #333;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #333;
+      font-size: 14px;
+    }
+
+    section {
+      padding: 100px 40px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .hero {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .hero img {
+      width: 200px;
+      border-radius: 50%;
+      border: 6px solid #fff;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+
+    .hero-text h1 {
+      margin: 0;
+      font-size: 28px;
+    }
+
+    .hero-text p {
+      margin-top: 10px;
+      line-height: 1.6;
+    }
+
+    .card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      margin-bottom: 20px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 12px;
+      color: #888;
+    }
+
+    /* 滚动动画 */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">你的名字</div>
+  <nav>
+    <a href="#about">关于我</a>
+    <a href="#experience">经历</a>
+    <a href="#services">服务</a>
+    <a href="#contact">联系</a>
+  </nav>
+</header>
+
+<section class="hero fade-in" id="about">
+  <img src="your-photo.jpg" alt="证件照">
+  <div class="hero-text">
+    <h1>中俄翻译 | 会议口译 / 笔译</h1>
+    <p>
+      我是一名专业的中俄翻译，长期从事外交、教育、科技领域的翻译工作。
+      熟悉高层会谈、国际会议及正式文件翻译，具备扎实的语言功底与跨文化沟通能力。
+    </p>
+  </div>
+</section>
+
+<section id="experience" class="fade-in">
+  <h2>工作经历</h2>
+  <div class="card fade-in">
+    <h3>某高校国际合作办公室</h3>
+    <p>负责中俄合作项目翻译、外事接待口译等工作。</p>
+  </div>
+  <div class="card fade-in">
+    <h3>国际会议口译</h3>
+    <p>参与多场中俄政府及高校会议，提供同传/交传服务。</p>
+  </div>
+</section>
+
+<section id="services" class="fade-in">
+  <h2>服务内容</h2>
+  <div class="card fade-in">
+    <p>✔ 会议口译（交替传译 / 同声传译）</p>
+    <p>✔ 文件翻译（合同、公文、学术材料）</p>
+    <p>✔ 外事接待陪同翻译</p>
+  </div>
+</section>
+
+<section id="contact" class="fade-in">
+  <h2>联系方式</h2>
+  <div class="card fade-in">
+    <p>邮箱：your@email.com</p>
+    <p>微信：your_wechat</p>
+  </div>
+</section>
+
+<footer class="fade-in">
+  © 2026 你的名字 | 中俄翻译
+</footer>
+
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => {
+    observer.observe(el);
+  });
+</script>
+
+</body>
+</html>
